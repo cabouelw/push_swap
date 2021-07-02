@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   swap_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 15:40:38 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 15:53:02 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:35:24 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
-void	s_swap(t_push_swap *ps, int msg)
+void	s_swap_bonus(t_check *ps, int msg)
 {
 	if (msg)
 	{
-		swap(&ps->stack_a, "ss");
-		swap(&ps->stack_b, "\n");
+		swap_bonus(&ps->stack_a, "ss");
+		swap_bonus(&ps->stack_b, "\n");
 	}
 	else
 	{
-		swap(&ps->stack_a, NULL);
-		swap(&ps->stack_b, NULL);
+		swap_bonus(&ps->stack_a, NULL);
+		swap_bonus(&ps->stack_b, NULL);
 	}
 }
 
-void	swap(t_stack **stack, char *msg)
+void	swap_bonus(t_stack **stack, char *msg)
 {
 	int	v;
 
@@ -38,7 +38,7 @@ void	swap(t_stack **stack, char *msg)
 	ft_putstr_fd(msg, 1);
 }
 
-void	rotate(t_stack **stack, char *msg)
+void	rotate_bonus(t_stack **stack, char *msg)
 {
 	t_stack	*last;
 	t_stack	*next;
@@ -55,7 +55,7 @@ void	rotate(t_stack **stack, char *msg)
 	ft_putstr_fd(msg, 1);
 }
 
-void	rotate_r(t_stack **stack, char *msg)
+void	rotate_r_bonus(t_stack **stack, char *msg)
 {
 	t_stack	*prev;
 	t_stack	*last;
@@ -74,7 +74,7 @@ void	rotate_r(t_stack **stack, char *msg)
 	ft_putstr_fd(msg, 1);
 }
 
-void	push(t_stack **pop, t_stack **push, char *msg)
+void	push_bonus(t_stack **pop, t_stack **push, char *msg)
 {
 	t_stack	*first;
 

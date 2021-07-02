@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 16:28:13 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/06/28 20:24:58 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/02 15:58:34 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	case_three(t_stack **stack_a)
 {
 	int	first;
 	int	second;
-	int third;
+	int	third;
 
 	first = (*stack_a)->value;
 	second = (*stack_a)->next->value;
@@ -39,18 +39,28 @@ void	case_three(t_stack **stack_a)
 		rotate_r(stack_a, "rra\n");
 }
 
-void	pup_min(int	idx, t_stack **stack_a, t_stack **stack_b, int size)
+void	push_all(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	 //     5 4 1 9 3 0 6
+	while (i < size)
+	{
+		push(stack_b, stack_a, "pa\n");
+		i++;
+	}
+}
+
+void	pop_min(t_stack **stack_a, t_stack **stack_b, int idx, int size)
+{
+	int	i;
+
+	i = 0;
 	while (i < idx && idx < (size / 2))
 	{
 		rotate(stack_a, "ra\n");
 		i++;
 	}
-	// printf("[%d]\n",(*stack_a)->value);
 	i = size;
 	while (i > idx && idx >= (size / 2))
 	{
@@ -60,58 +70,57 @@ void	pup_min(int	idx, t_stack **stack_a, t_stack **stack_b, int size)
 	push(stack_a, stack_b, "pb\n");
 }
 
-void	swap_from_b(t_stack **stack_a, t_stack **stack_b)
+void	case_less(t_push_swap *ps)
 {
-	t_stack *swap;
-	int		size;
-
-	size = 0;
-	swap = *stack_b;
-	while (swap)
-	{
-		size++;
-		swap = swap->next;
-	}
-	swap = *stack_b;
-	while (size)
-	{
-		size--;
-		push(&swap, stack_a, "pb\n");
-	}
-	(*stack_b) = NULL;
-}
-
-void	push_and_swap(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*min;
 	int		idx;
 	int		j;
-	// t_stack *stage;
-	t_stack	*loop_a;
-	t_stack	*loop_b;
 
-	min = *stack_a;
-	loop_b = *stack_b;
-	while ((*stack_a)->next)
+	while (ps->stack_a)
 	{
-		loop_a = *stack_a;
+		ps->loop_a = ps->stack_a;
 		j = 0;
-		min = *stack_a;
-		while (loop_a)
+		ps->min = ps->stack_a;
+		while (ps->loop_a)
 		{
-			if (loop_a->value < min->value)
+			if (ps->loop_a->value <= ps->min->value)
 			{
-				// printf("----------------{%d} < min{%d}\n", loop_a->value, min->value);
-				min = loop_a;
+				ps->min = ps->loop_a;
 				idx = j;
 			}
-			loop_a = loop_a->next;
+			ps->loop_a = ps->loop_a->next;
 			j++;
 		}
-		// printf("\n\nmin******|%d|%d|\n\n", min->value, idx);
-		pup_min(idx, stack_a, stack_b, j);
-		// stage = stage->next;
+		pop_min(&ps->stack_a, &ps->stack_b, idx, j);
 	}
-	push(stack_a, stack_b, "pb\n");
-	swap_from_b(stack_a, stack_b);
+	push(&ps->stack_a, &ps->stack_b, "pb\n");
+	push_all(&ps->stack_a, &ps->stack_b, ps->size);
+}
+
+void	case_five(t_push_swap *ps, int size, int idx)
+{
+	int		nb;
+
+	nb = 0;
+	while (nb < 2)
+	{
+		ps->loop_a = ps->stack_a;
+		idx = 0;
+		size = 0;
+		ps->min = ps->stack_a;
+		while (ps->loop_a)
+		{
+			if (ps->loop_a->value < ps->min->value)
+			{
+				ps->min = ps->loop_a;
+				idx = size;
+			}
+			ps->loop_a = ps->loop_a->next;
+			size++;
+		}
+		pop_min(&ps->stack_a, &ps->stack_b, idx, size);
+		nb++;
+	}
+	case_three(&ps->stack_a);
+	push(&ps->stack_b, &ps->stack_a, "pa\n");
+	push(&ps->stack_b, &ps->stack_a, "pa\n");
 }
