@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 16:37:39 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 16:38:27 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/04 13:26:57 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_duplica_bonus(char *value, t_stack **stack)
 	tmp = *stack;
 	while (tmp)
 	{
-		if (check_lenvalue_bonus(value) || ft_atoi(value) == tmp->value)
+		if (ft_atoi(value) == tmp->value)
 			ft_error_bonus("Error\n", stack);
 		if (!tmp->next)
 			break ;
@@ -56,7 +56,7 @@ void	ft_parsing_bonus(char **str, t_check *ps, int i, int j)
 		j = 0;
 		while (splt[j])
 		{
-			if (check_allnum_bonus(splt[j]))
+			if (check_allnum_bonus(splt[j]) || check_lenvalue_bonus(splt[j]))
 				ft_error_bonus("Error\n", &ps->stack_a);
 			ps->tmp->next = NULL;
 			ps->tmp->value = ft_atoi(splt[j]);

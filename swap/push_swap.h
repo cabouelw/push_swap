@@ -6,14 +6,14 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:48:20 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 16:47:53 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:18:52 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <unistd.h>
-# include "Libft/libft.h"
+# include "../Libft/libft.h"
 
 # define MIN_INT -2147483648
 

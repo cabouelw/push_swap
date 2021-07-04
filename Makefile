@@ -6,7 +6,7 @@
 #    By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 16:42:39 by cabouelw          #+#    #+#              #
-#    Updated: 2021/07/02 17:06:33 by cabouelw         ###   ########.fr        #
+#    Updated: 2021/07/02 17:18:30 by cabouelw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIB = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_P =	push_swap.c\
+SRC_P =	swap/push_swap.c\
 		swap/swap.c\
 		swap/case_swap.c\
 		swap/ft_tools.c\

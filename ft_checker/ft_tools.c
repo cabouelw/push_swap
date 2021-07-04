@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 16:35:48 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 16:38:14 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/04 13:27:55 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_allnum_bonus(char *str)
 		return (1);
 	while (str[i])
 	{
-		if (ft_isalpha(str[i]))
+		if (!ft_isdigit(str[i]))
 			return (1);
 		i++;
 	}

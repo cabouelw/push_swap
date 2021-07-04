@@ -6,12 +6,12 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:53:33 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 16:40:05 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:25:10 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKR_H
-# define CHECKR_H
+#ifndef CHECKER_H
+# define CHECKER_H
 # include <unistd.h>
 # include <stdio.h>
 # include "../Libft/libft.h"
@@ -30,6 +30,7 @@ typedef struct s_check
 	t_stack		*loop_b;
 	t_stack		*tmp;
 }	t_check;
+
 void	s_swap_bonus(t_check *ps, int msg);
 void	swap_bonus(t_stack **stack, char *msg);
 void	rotate_bonus(t_stack **stack, char *msg);

@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 15:40:38 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 15:53:02 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:17:52 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	s_swap(t_push_swap *ps, int msg)
 {

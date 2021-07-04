@@ -6,11 +6,11 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 15:50:07 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 15:59:07 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/02 17:17:52 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	ft_sorted(t_push_swap *ps)
 {

@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 16:40:54 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 16:32:08 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/04 13:40:48 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	ft_parsing(char **str, t_push_swap *ps, int i, int j)
 		j = 0;
 		while (splt[j])
 		{
-			if (check_allnum(splt[j]))
-				ft_error("only numbers!!!\n", &ps->stack_a);
+			if (check_allnum(splt[j]) || check_lenvalue(splt[j]))
+				ft_error("Error\n", &ps->stack_a);
 			ps->tmp->next = NULL;
 			ps->tmp->value = ft_atoi(splt[j]);
 			ps->size++;
@@ -75,7 +75,9 @@ int	main(int argc, char **argv)
 		ps.stack_b = NULL;
 		ft_parsing(argv, &ps, 1, 0);
 		ft_tab_sort(&ps);
-		if (ps.size == 3)
+		if (ps.size == 2)
+			swap(&ps.stack_a, "sa\n");
+		else if (ps.size == 3)
 			case_three(&ps.stack_a);
 		else if (ps.size == 5)
 			case_five(&ps, 0, 0);
