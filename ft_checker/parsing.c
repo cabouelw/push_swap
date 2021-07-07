@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 16:37:39 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/04 13:26:57 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:33:08 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	ft_parsing_bonus(char **str, t_check *ps, int i, int j)
 		{
 			if (check_allnum_bonus(splt[j]) || check_lenvalue_bonus(splt[j]))
 				ft_error_bonus("Error\n", &ps->stack_a);
-			ps->tmp->next = NULL;
 			ps->tmp->value = ft_atoi(splt[j]);
 			j++;
 			ft_malloc_bonus(ps, splt, j);

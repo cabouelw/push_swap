@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:41:21 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 16:38:23 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:41:11 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@ void	ft_splt_free(char	**splt)
 	free(splt);
 }
 
+void	more_act(t_check *ps, char *input)
+{
+	if (!ft_strcmp(input, "rra"))
+		rotate_r_bonus(&ps->stack_a, NULL);
+	else if (!ft_strcmp(input, "rr"))
+	{
+		rotate_bonus(&ps->stack_a, NULL);
+		rotate_bonus(&ps->stack_b, NULL);
+	}
+	else if (!ft_strcmp(input, "rrb"))
+		rotate_r_bonus(&ps->stack_b, NULL);
+	else if (!ft_strcmp(input, "rrr"))
+	{
+		rotate_r_bonus(&ps->stack_a, NULL);
+		rotate_r_bonus(&ps->stack_b, NULL);
+	}
+	else
+		ft_error_bonus("Error\n", &ps->stack_a);
+}
+
 void	act_bonus(t_check *ps, char *input)
 {
 	if (!ft_strcmp(input, "pa"))
@@ -41,17 +61,8 @@ void	act_bonus(t_check *ps, char *input)
 		rotate_bonus(&ps->stack_a, NULL);
 	else if (!ft_strcmp(input, "rb"))
 		rotate_bonus(&ps->stack_b, NULL);
-	else if (!ft_strcmp(input, "rra"))
-		rotate_r_bonus(&ps->stack_a, NULL);
-	else if (!ft_strcmp(input, "rrb"))
-		rotate_r_bonus(&ps->stack_b, NULL);
-	else if (!ft_strcmp(input, "rrr"))
-	{
-		rotate_r_bonus(&ps->stack_a, NULL);
-		rotate_r_bonus(&ps->stack_b, NULL);
-	}
 	else
-		ft_error_bonus("Error\n", &ps->stack_a);
+		more_act(ps, input);
 }
 
 void	checker_bonus(t_check *ps)
@@ -90,6 +101,9 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_parsing_bonus(argv, &ps, 1, 0);
 	checker_bonus(&ps);
+	ft_free_bonus(&ps.stack_a);
+	if (ps.stack_b)
+		ft_free_bonus(&ps.stack_b);
 	ft_putstr_fd("OK\n", 1);
 	return (0);
 }

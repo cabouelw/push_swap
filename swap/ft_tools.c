@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:40:22 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/04 13:28:25 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:25:54 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ int	check_allnum(char *str)
 void	ft_free(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack	*next;
+	t_stack	*prev;
 
 	tmp = *stack;
-	next = NULL;
+	prev = NULL;
 	while (tmp)
 	{
-		next = tmp;
+		prev = tmp;
 		tmp = tmp->next;
-		free(next);
+		free(prev);
 	}
 }
 

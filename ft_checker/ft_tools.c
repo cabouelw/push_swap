@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 16:35:48 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/04 13:27:55 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:33:13 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	ft_malloc_bonus(t_check *ps, char **str, int i)
 		check_duplica_bonus(str[i], &ps->stack_a);
 		ps->tmp->next = (t_stack *)malloc(sizeof(t_stack) * 1);
 		ps->tmp = ps->tmp->next;
+		ps->tmp->next = NULL;
 	}
 }

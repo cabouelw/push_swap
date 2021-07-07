@@ -6,14 +6,13 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 10:53:33 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/02 17:25:10 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:47:11 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 # include <unistd.h>
-# include <stdio.h>
 # include "../Libft/libft.h"
 
 typedef struct s_stack

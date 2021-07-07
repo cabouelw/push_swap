@@ -6,7 +6,7 @@
 /*   By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/26 16:40:54 by cabouelw          #+#    #+#             */
-/*   Updated: 2021/07/04 13:40:48 by cabouelw         ###   ########.fr       */
+/*   Updated: 2021/07/07 11:37:48 by cabouelw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_malloc(t_push_swap *ps, char **str, int i)
 		check_duplica(str[i], &ps->stack_a);
 		ps->tmp->next = (t_stack *)malloc(sizeof(t_stack) * 1);
 		ps->tmp = ps->tmp->next;
+		ps->tmp->next = NULL;
 	}
 }
 
@@ -50,7 +51,6 @@ void	ft_parsing(char **str, t_push_swap *ps, int i, int j)
 		{
 			if (check_allnum(splt[j]) || check_lenvalue(splt[j]))
 				ft_error("Error\n", &ps->stack_a);
-			ps->tmp->next = NULL;
 			ps->tmp->value = ft_atoi(splt[j]);
 			ps->size++;
 			j++;
@@ -67,9 +67,7 @@ int	main(int argc, char **argv)
 	t_push_swap	ps;
 
 	ps.size = 0;
-	if (argc < 2)
-		ft_putstr_fd("args!!!\n", 2);
-	else
+	if (argc >= 2)
 	{
 		ps.stack_a = NULL;
 		ps.stack_b = NULL;

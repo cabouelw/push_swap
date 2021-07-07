@@ -6,7 +6,7 @@
 #    By: cabouelw <cabouelw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/26 16:42:39 by cabouelw          #+#    #+#              #
-#    Updated: 2021/07/02 17:18:30 by cabouelw         ###   ########.fr        #
+#    Updated: 2021/07/06 17:30:27 by cabouelw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ bonus: $(OBJ_C) $(LIB)
 
 $(LIB):
 	@make -C $(LIB_PATH)
+	@make clean -C $(LIB_PATH)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $^ -o $@
